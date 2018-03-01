@@ -24,8 +24,8 @@ def parse(filename):
             'y1' : int(line[1]),
             'x2' : int(line[2]),
             'y2' : int(line[3]),
-            'start' : int(line[4]),
-            'end' : int(line[5])
+            'e_start' : int(line[4]),
+            'l_fin' : int(line[5])
         });
         i += 1
     return [ret1, ret2]
