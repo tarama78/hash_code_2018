@@ -60,11 +60,14 @@ def test(filename):
             break
         min = get_min(info, 0, 0) #le chemin le plus petit en partant du depart return [index_path, size]
         steps = min[1]
+#        print(min)
         tab_steps = []
+#        print(info[1][min[0]], min[1])
         while (info[1][min[0]]['l_fin'] > steps):
             tab_steps.append(min[0])
             x = info[1][min[0]]['x2']
             y = info[1][min[0]]['y2']
+#            info[1].pop(min[0]) 
             info[1][min[0]]['use'] = True
             if (len(info[1]) == 0):
                 break
@@ -75,4 +78,7 @@ def test(filename):
             print(i, end=' ')
         print()
 
-test("files/e_high_bonus.in")
+        # afficher lignne
+
+test("files/d_metropolis.in")
+
