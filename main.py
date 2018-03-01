@@ -1,6 +1,6 @@
 import linecache
 
-#python3 main.py
+#call test function with a file in argument
 
 def parse(filename):
     line = linecache.getline(filename, 1)
