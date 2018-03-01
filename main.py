@@ -1,5 +1,7 @@
 import linecache
 
+#python3 main.py
+
 def parse(filename):
     line = linecache.getline(filename, 1)
     line = line.split(' ')
@@ -32,7 +34,6 @@ def parse(filename):
     return [ret1, ret2]
 
 
-
 def get_min(info, x, y):
     len_min = 2000000000
     index_path = -1
@@ -48,37 +49,25 @@ def get_min(info, x, y):
     return [index_path, len_min]
 
 
-
-
-
-
 def test(filename):
     info = parse(filename)
 
     for i in range(info[0]['nb_car']):
         if (len(info[1]) == 0):
             break
-        min = get_min(info, 0, 0) #le chemin le plus petit en partant du depart return [index_path, size]
+        min = get_min(info, 0, 0)
         steps = min[1]
-#        print(min)
         tab_steps = []
-#        print(info[1][min[0]], min[1])
         while (info[1][min[0]]['l_fin'] > steps):
             tab_steps.append(min[0])
             x = info[1][min[0]]['x2']
             y = info[1][min[0]]['y2']
-#            info[1].pop(min[0]) 
             info[1][min[0]]['use'] = True
             if (len(info[1]) == 0):
                 break
-            min = get_min(info, x, y) #le chemin le plus petit en partant du depart
+            min = get_min(info, x, y)
             steps += min[1]
         print(len(tab_steps), end=' ')
         for i in tab_steps:
             print(i, end=' ')
         print()
-
-        # afficher lignne
-
-test("files/d_metropolis.in")
-
